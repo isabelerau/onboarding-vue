@@ -1,0 +1,46 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+
+  <h1>Usuários</h1>
+
+  <button @click="alterarVisualizacaoUsuarios">{{ this.mostrarUsuarios ? 'Ocultar usuários' : 'Mostrar usuários'}}</button> 
+
+  <!-- <button v-if="mostrarUsuarios" @click="alterarVisualizacaoUsuarios">Ocultar usuários</button>
+  <button v-else @click="alterarVisualizacaoUsuarios">Mostrar usuários</button> -->
+
+<!--   <div v-if="mostrarUsuarios">
+    <p> Lista de usuários</p>
+    <ul>
+      <li v-for="(usuario, index) in usuarios" :key="index">{{ usuario.nome }} - {{ usuario.idade }}</li>
+    </ul>
+  </div> -->
+
+  <div v-show="mostrarUsuarios">
+    <p> Lista de usuários</p>
+    <ul>
+      <li v-for="(usuario, index) in usuarios" :key="index">{{ usuario.nome }} - {{ usuario.idade }}</li>
+    </ul>
+  </div>
+  
+</div>
+
+<script>
+  const vm = new Vue({
+    el: '#app',
+    data: {
+      usuarios: [
+        { nome: 'João', idade: '27'},
+        { nome: 'Vanessa', idade: '33'},
+        { nome: 'Fernanda', idade: '22'},
+        { nome: 'Jucelina', idade: '23'}
+      ],
+      mostrarUsuarios: true
+    },
+    methods: {
+      alterarVisualizacaoUsuarios() {
+        this.mostrarUsuarios = !this.mostrarUsuarios;
+      }
+    }
+  })
+</script>

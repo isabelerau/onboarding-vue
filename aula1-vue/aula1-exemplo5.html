@@ -1,0 +1,22 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <a @click.prevent="" :href="link">Softplan</a>
+  <br/>
+  <br/>
+  <input type="text" @keyup.enter.esc="mostrarAlerta"/>
+</div>
+
+<script>
+  const vm = new Vue({
+    el: '#app',
+    data: {
+      link: "http://softplan.com.br"
+    },
+    methods: {
+      mostrarAlerta(){
+        alert('evento keyup')
+      },
+    }
+  })
+</script>

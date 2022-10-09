@@ -1,0 +1,41 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <p>Valor A: {{ valorA }} || Valor B: {{ valorB }}</p>
+  <button @click="adicionar">Adicionar</button>
+  <button @click="diminuir">Diminuir</button>
+
+  <button @click="valorB++">Adicionar B</button>
+
+  <p> Resultado: {{ resultado }}</p>
+
+  <!-- <p> Resultado: {{ resultado() }}</p> -->
+</div>
+
+<script>
+  const vm = new Vue({
+    el: '#app',
+    data: {
+      valorA: 0,
+      valorB: 3
+    },
+    methods: {
+      adicionar(){
+        this.valorA++;
+      },
+      diminuir() {
+        this.valorA--;
+      },
+ /*      resultado() {
+        console.log('metodo resultado');
+        return this.valorA > 5 ? 'O valor A é maior que 5' : 'O valor A é menor que 5'
+      } */
+    },
+    computed: {
+      resultado() {
+        console.log('computed resultado');
+        return this.valorA > 5 ? 'O valor A é maior que 5' : 'O valor A é menor que 5'
+      }
+    }
+  })
+</script>
